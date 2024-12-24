@@ -131,7 +131,7 @@ def generate_launch_description():
         joint_state_broadcaster,
         joint_group_controller,
         controller,
-        cmd_vel_pub,
+        # cmd_vel_pub,
         odom,
-        bringup_cmd
+        # bringup_cmd
     ])
