@@ -288,6 +288,28 @@ def generate_launch_description():
             remappings=remappings
         )
 
+        fake_bms = ExecuteProcess(
+            cmd=[
+                'ros2', 'topic', 'pub', f'/{namespace}/battery_state', 'sensor_msgs/msg/BatteryState',
+                "{header: {stamp: {sec: 0, nanosec: 0}, frame_id: ''}, voltage: 24.0, percentage: 0.8, capacity: 10.0}",
+                '-r', '1'
+            ],
+            output='log'
+        )
+        # Fake Docking - Публикация действий по стыковке
+        fake_docking = Node(
+            package='ff_examples_ros2',
+            executable='teleworker_skill_dummy_action.py',
+            name='docking_fake_server',
+            namespace=namespace,
+            output='screen',
+            parameters=[
+                {'action_name': f'/{namespace}/docking/start'},
+                {'return_success': True}
+            ]
+        )
+
+
         robot_control = GroupAction([
             SetRemap(src="/tf", dst="tf"),
             SetRemap(src="/tf_static", dst="tf_static"),

@@ -38,7 +38,9 @@
   <depend>ros_ign_bridge</depend>
   <depend>ros_ign_interfaces</depend>
   <depend>ros_ign_utils</depend>
-
+  <depend>ros_gz_image</depend>
+  <depend>ros_gz_bridge</depend>
+  <depend>opennav_docking</depend>
   <exec_depend>ros2_controllers</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
