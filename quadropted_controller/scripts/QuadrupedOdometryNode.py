@@ -149,8 +149,8 @@ class DogOdometry(Node):
             raise e
 
     def velocity_callback(self, msg):
-        self.linear_velocity_x = msg.cmd_vel.linear.x / 0.035
-        self.linear_velocity_y = msg.cmd_vel.linear.y / 0.035
+        self.linear_velocity_x = (msg.cmd_vel.linear.x / 0.035) / 3
+        self.linear_velocity_y = (msg.cmd_vel.linear.y / 0.012) / 3
         if self.verbose:
             self.get_logger().info(f"Robot Velocity - Linear X: {self.linear_velocity_x:.6f} m/s, Linear Y: {self.linear_velocity_y:.6f} m/s")
 

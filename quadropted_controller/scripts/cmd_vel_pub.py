@@ -34,7 +34,7 @@ class RobotVelocityHandler(Node):
 
         new_msg.cmd_vel.angular.x = msg.angular.x
         new_msg.cmd_vel.angular.y = msg.angular.y
-        new_msg.cmd_vel.angular.z = self.limit(msg.angular.z, -0.5, 0.5)
+        new_msg.cmd_vel.angular.z = self.limit(msg.angular.z, -1.0, 1.0)
 
         self.publisher_.publish(new_msg)
 
