@@ -17,6 +17,7 @@ install(PROGRAMS
 
 install(PROGRAMS
   scripts/cmd_vel_pub.py
+  scripts/robot_mode.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
